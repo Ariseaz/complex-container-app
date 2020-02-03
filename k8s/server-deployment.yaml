@@ -35,4 +35,7 @@ spec:
           - name: PGPORT
             value: 5432
           - name: PGPASSWORD
-            value: 
+            valueFrom:
+              secretKeyRef:
+                name: pgpassword
+                key: PGPASSWORD
