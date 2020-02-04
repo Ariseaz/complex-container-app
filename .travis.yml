@@ -13,8 +13,8 @@ before_install:
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push stephengrider/multi-client
-  - docker push stephengrider/multi-nginx
-  - docker push stephengrider/multi-server
-  - docker push stephengrider/multi-worker
+  - docker push adenijiazeez/multi-client
+  - docker push adenijiazeez/multi-nginx
+  - docker push adenijiazeez/multi-server
+  - docker push adenijiazeez/multi-worker
   
