@@ -20,4 +20,17 @@ spec:
             memory: "128Mi"
             cpu: "200m"
         ports:
-        - containerPort: 3000
+        - name: client-port
+          containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: client-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /
+            port: client-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 30

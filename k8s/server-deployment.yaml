@@ -20,7 +20,20 @@ spec:
             memory: "128Mi"
             cpu: "200m"
         ports:
-        - containerPort: 5000
+        - name: server-port
+          containerPort: 5000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: server-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /
+            port: server-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 30
         env:
           - name: REDIS_HOST
             value: redis-cluster-ip-service
